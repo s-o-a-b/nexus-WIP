@@ -1,3 +1,5 @@
+local HttpService = game:GetService("HttpService")
+
 local InterfaceManager = {} do
 	InterfaceManager.Folder = "nexus-001"
 	InterfaceManager.Settings = {
@@ -36,14 +38,14 @@ local InterfaceManager = {} do
 	end
 
 	function InterfaceManager:SaveSettings()
-		writefile(self.Folder .. "/options.json", game:GetService("HttpService"):JSONEncode(InterfaceManager.Settings))
+		writefile(self.Folder .. "/options.json", HttpService:JSONEncode(InterfaceManager.Settings))
 	end
 
 	function InterfaceManager:LoadSettings()
 		local path = self.Folder .. "/options.json"
 		if isfile(path) then
 			local data = readfile(path)
-			local success, decoded = pcall(game:GetService("HttpService").JSONDecode, game:GetService("HttpService"), data)
+			local success, decoded = pcall(HttpService.JSONDecode, HttpService, data)
 
 			if success then
 				for i, v in next, decoded do
