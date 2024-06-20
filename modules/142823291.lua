@@ -531,22 +531,6 @@ Tabs.Main:AddButton({
         end
     end
 })
-local Toggle = Tabs.Main:AddToggle("EndRound", {
-    Title = "End Round (BETA)",
-    Default = false,
-    Callback = function(value)
-        if value then
-            repeat task.wait()
-                local success, result = pcall(function()
-                    local murderer = game.Players:FindFirstChild(Murderer)
-                    if not IsAlive(LocalPlayer, roles) then wait(5)
-                        module:fling(murderer)
-                    end
-                end)
-            until not Options.EndRound.Value
-        end
-    end
-})
 
 Tabs.Murderer:AddButton({
     Title = "Kill All",
