@@ -484,16 +484,15 @@ local Toggle = Tabs.Settings:AddToggle("Settings", {
     Callback = function(value)
 		if value then 
             repeat task.wait() 
-                if getgenv().FB35D == true then return end SaveManager:Save(game.PlaceId)
+                if _G.FB35D == true then return end SaveManager:Save(game.PlaceId) 
             until not Options.Settings.Value
 		end
 	end
 })
-
 Tabs.Settings:AddButton({
 	Title = "Delete Setting Config",
 	Callback = function()
-		delfile("FLORENCE/settings/".. game.PlaceId ..".json")
+		delfile("nexus-001/settings/".. game.PlaceId ..".json")
 	end  
 })  
 
