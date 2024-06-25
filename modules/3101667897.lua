@@ -28,7 +28,7 @@ local Options = Fluent.Options
 SaveManager:SetLibrary(Fluent)
 
 local Window = Fluent:CreateWindow({
-    Title = "nexus ", "",
+    Title = "skid ", "",
     SubTitle = "",
     TabWidth = 160,
     Size = UDim2.fromOffset(580, 460),
